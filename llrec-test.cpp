@@ -86,10 +86,13 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+    Node* smaller;
+    Node* larger;
+    llpivot(head, smaller, larger, 10);
+    print(head);
+    print(smaller);
+    print(larger);
 
-
-
-    
     return 0;
 
 }

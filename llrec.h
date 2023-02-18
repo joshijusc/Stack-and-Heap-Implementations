@@ -1,4 +1,4 @@
-#ifndef LLREC_H
+    #ifndef LLREC_H
 #define LLREC_H
 #ifndef NULL
 #define NULL 0
@@ -83,8 +83,18 @@ Node* llfilter(Node* head, Comp pred)
     //*********************************************
     // Provide your implementation below
     //*********************************************
-
-
+    if (head == nullptr) {
+        return head;
+    } else if (pred(head->val)) { // Node should be deleted
+        Node* temp = head->next;
+        delete head;
+        head = nullptr;
+        return llfilter(temp, pred);
+    } else { // Should not be deleted
+        head->next = llfilter(head->next, pred);
+        return head;
+    }
 }
+
 
 #endif
